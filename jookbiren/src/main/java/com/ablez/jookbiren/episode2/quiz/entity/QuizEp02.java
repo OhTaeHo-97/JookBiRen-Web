@@ -1,4 +1,4 @@
-package com.ablez.jookbiren.entity;
+package com.ablez.jookbiren.episode2.quiz.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +11,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Entity
-public class UserInfo {
+public class QuizEp02 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userInfoId;
+    private Long quizId;
     @Column(nullable = false)
-    private String code;
+    private Integer placeCode;
+    @Column(nullable = false)
+    private Integer quizNumber;
+    @Column(nullable = false)
+    private Integer quizCode;
 }

@@ -11,7 +11,7 @@ import com.ablez.jookbiren.chatbot.user.dto.UserDto.ResponseDto;
 import com.ablez.jookbiren.chatbot.user.dto.UserDto.Template;
 import com.ablez.jookbiren.chatbot.user.dto.UserDto.TextCard;
 import com.ablez.jookbiren.chatbot.user.dto.UserDto.UserPostDto;
-import com.ablez.jookbiren.entity.UserInfo;
+import com.ablez.jookbiren.userInfo.entity.UserInfo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
