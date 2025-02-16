@@ -26,7 +26,9 @@ public class Quiz0Ep01 {
     @Setter
     private LocalDateTime firstAnswerTime;
     @Setter
-    private LocalDateTime getHintTime;
+    private LocalDateTime firstHintTime;
+    @Setter
+    private LocalDateTime secondHintTime;
     @Setter
     private LocalDateTime getAnswerTime;
 

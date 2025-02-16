@@ -3,6 +3,9 @@ package com.ablez.jookbiren.episode1.quiz.service;
 import com.ablez.jookbiren.episode1.answer.dto.AnswerDto.FindAnswerResponseDto;
 import com.ablez.jookbiren.episode1.answer.service.AnswerService;
 import com.ablez.jookbiren.episode1.dto.JookbirenDto.Quiz;
+import com.ablez.jookbiren.episode1.hint.entity.HintEp01;
+import com.ablez.jookbiren.episode1.hint.service.HintService;
+import com.ablez.jookbiren.episode1.quiz.dto.QuizDto.HintDto;
 import com.ablez.jookbiren.episode1.quiz.dto.QuizDto.PageDto;
 import com.ablez.jookbiren.episode1.quiz.dto.QuizDto.QuizPageDto;
 import com.ablez.jookbiren.episode1.quiz.entity.Quiz0Ep01;
@@ -13,7 +16,9 @@ import com.ablez.jookbiren.episode1.quiz.entity.Quiz4Ep01;
 import com.ablez.jookbiren.episode1.user.entity.UserEp01;
 import com.ablez.jookbiren.exception.BusinessLogicException;
 import com.ablez.jookbiren.exception.ExceptionCode;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +30,7 @@ import org.springframework.stereotype.Service;
 public class QuizService {
     private final AnswerService answerService;
     private final QuizInfoService quizInfoService;
+    private final HintService hintService;
 
     public PageDto getCurrentSituationAndSolvedProblems(int placeCode, UserEp01 user) {
         if (placeCode == 0) {
@@ -168,7 +174,126 @@ public class QuizService {
         }
     }
 
-//    public HintDto findHint(UserEp01 user, Quiz quizInfo) {
+    public HintDto findHint(int hintNumber, UserEp01 user, Quiz quizInfo) {
+        String hint = null;
+        String image = null;
+
+        if (quizInfo.getPlaceCode() == 0) {
+            Quiz0Ep01 log = quizInfoService.findByQuizNumberAndUser0(quizInfo.getQuizNumber(), user).orElse(null);
+            if (log == null) {
+                log = quizInfoService.insertQuiz0(quizInfo.getQuizNumber(), user);
+            }
+
+            if (log.getFirstAnswerTime() == null) {
+                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                        quizInfo.getQuizNumber(), hintNumber);
+                if (hintInfo.isEmpty()) {
+                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+                }
+
+                if (hintNumber == 1) {
+                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+                } else if (hintNumber == 2) {
+                    log.setSecondHintTime(
+                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+                }
+
+                hint = hintInfo.get().getHint();
+                image = hintInfo.get().getHintImage();
+            }
+        } else if (quizInfo.getPlaceCode() == 1) {
+            Quiz1Ep01 log = quizInfoService.findByQuizNumberAndUser1(quizInfo.getQuizNumber(), user).orElse(null);
+            if (log == null) {
+                log = quizInfoService.insertQuiz1(quizInfo.getQuizNumber(), user);
+            }
+
+            if (log.getFirstAnswerTime() == null) {
+                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                        quizInfo.getQuizNumber(), hintNumber);
+                if (hintInfo.isEmpty()) {
+                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+                }
+
+                if (hintNumber == 1) {
+                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+                } else if (hintNumber == 2) {
+                    log.setSecondHintTime(
+                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+                }
+
+                hint = hintInfo.get().getHint();
+                image = hintInfo.get().getHintImage();
+            }
+        } else if (quizInfo.getPlaceCode() == 2) {
+            Quiz2Ep01 log = quizInfoService.findByQuizNumberAndUser2(quizInfo.getQuizNumber(), user).orElse(null);
+            if (log == null) {
+                log = quizInfoService.insertQuiz2(quizInfo.getQuizNumber(), user);
+            }
+
+            if (log.getFirstAnswerTime() == null) {
+                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                        quizInfo.getQuizNumber(), hintNumber);
+                if (hintInfo.isEmpty()) {
+                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+                }
+
+                if (hintNumber == 1) {
+                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+                } else if (hintNumber == 2) {
+                    log.setSecondHintTime(
+                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+                }
+
+                hint = hintInfo.get().getHint();
+                image = hintInfo.get().getHintImage();
+            }
+        } else if (quizInfo.getPlaceCode() == 3) {
+            Quiz3Ep01 log = quizInfoService.findByQuizNumberAndUser3(quizInfo.getQuizNumber(), user).orElse(null);
+            if (log == null) {
+                log = quizInfoService.insertQuiz3(quizInfo.getQuizNumber(), user);
+            }
+
+            if (log.getFirstAnswerTime() == null) {
+                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                        quizInfo.getQuizNumber(), hintNumber);
+                if (hintInfo.isEmpty()) {
+                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+                }
+
+                if (hintNumber == 1) {
+                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+                } else if (hintNumber == 2) {
+                    log.setSecondHintTime(
+                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+                }
+
+                hint = hintInfo.get().getHint();
+                image = hintInfo.get().getHintImage();
+            }
+        } else if (quizInfo.getPlaceCode() == 4) {
+            Quiz4Ep01 log = quizInfoService.findByQuizNumberAndUser4(quizInfo.getQuizNumber(), user).orElse(null);
+            if (log == null) {
+                log = quizInfoService.insertQuiz4(quizInfo.getQuizNumber(), user);
+            }
+
+            if (log.getFirstAnswerTime() == null) {
+                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                        quizInfo.getQuizNumber(), hintNumber);
+                if (hintInfo.isEmpty()) {
+                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+                }
+
+                log.setGetHintTime(log.getGetHintTime() == null ? LocalDateTime.now() : log.getGetHintTime());
+
+                hint = hintInfo.get().getHint();
+                image = hintInfo.get().getHintImage();
+            }
+        } else {
+            throw new BusinessLogicException(ExceptionCode.INVALID_PLACE_CODE);
+        }
+
+        return new HintDto(hint, image);
+
 //        QuizPageDto checkAlreadySolvedQuiz = checkAlreadySolvedQuiz(user, quizInfo);
 //
 //        if (checkAlreadySolvedQuiz.getAnswer().isEmpty()) {
@@ -208,5 +333,5 @@ public class QuizService {
 //        }
 //
 //        return new HintDto(checkAlreadySolvedQuiz.getAnswer().isEmpty());
-//    }
+    }
 }

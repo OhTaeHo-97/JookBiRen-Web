@@ -32,10 +32,12 @@ public class QuizDto {
 
     @Getter
     public static class HintDto {
-        private boolean hint;
+        private String hint;
+        private String image;
 
-        public HintDto(boolean hint) {
+        public HintDto(String hint, String image) {
             this.hint = hint;
+            this.image = image;
         }
     }
 }

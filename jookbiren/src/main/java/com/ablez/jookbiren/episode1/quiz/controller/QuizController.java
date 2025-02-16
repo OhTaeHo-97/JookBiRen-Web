@@ -3,6 +3,7 @@ package com.ablez.jookbiren.episode1.quiz.controller;
 import com.ablez.jookbiren.episode1.dto.JookbirenDto.Quiz;
 import com.ablez.jookbiren.episode1.quiz.service.QuizService;
 import com.ablez.jookbiren.episode1.user.service.UserService;
+import javax.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,8 +35,10 @@ public class QuizController {
     }
 
     @GetMapping("/hint")
-    public ResponseEntity getHint(@RequestHeader("Authorization") String accessToken, String quiz) {
-        return new ResponseEntity(quizService.findHint(userService.findCurrentUser(accessToken), new Quiz(quiz)),
+    public ResponseEntity getHint(@RequestHeader("Authorization") String accessToken, String quiz,
+                                  @Positive int hintNumber) {
+        return new ResponseEntity(
+                quizService.findHint(hintNumber, userService.findCurrentUser(accessToken), new Quiz(quiz)),
                 HttpStatus.OK);
     }
 }
