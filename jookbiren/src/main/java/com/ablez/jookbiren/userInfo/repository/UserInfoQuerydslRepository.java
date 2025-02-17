@@ -1,6 +1,7 @@
 package com.ablez.jookbiren.userInfo.repository;
 
 import static com.ablez.jookbiren.episode1.user.entity.QUserEp01.userEp01;
+import static com.ablez.jookbiren.episode2.user.entity.QUserEp02.userEp02;
 import static com.ablez.jookbiren.security.entity.QAuthority.authority;
 import static com.ablez.jookbiren.userInfo.entity.QUserInfo.userInfo;
 
