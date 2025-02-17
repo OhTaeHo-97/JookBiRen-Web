@@ -1,7 +1,6 @@
 package com.ablez.jookbiren.episode2.quiz.service;
 
 import com.ablez.jookbiren.episode2.quiz.entity.WrongAnswerEp02;
-import com.ablez.jookbiren.episode2.quiz.mapper.QuizInfoMapper;
 import com.ablez.jookbiren.episode2.quiz.repository.WrongAnswerQuerydslRepository;
 import com.ablez.jookbiren.episode2.quiz.repository.WrongAnswerRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class WrongAnswerService {
     private final WrongAnswerRepository wrongAnswerJpaRepository;
     private final WrongAnswerQuerydslRepository wrongAnswerRepository;
-    private final QuizInfoMapper quizInfoMapper;
+//    private final QuizInfoMapper quizInfoMapper;
 
     public void insertWrongAnswer(WrongAnswerEp02 wrongAnswer) {
         wrongAnswerJpaRepository.save(wrongAnswer);

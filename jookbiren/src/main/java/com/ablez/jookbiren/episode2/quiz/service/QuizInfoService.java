@@ -4,7 +4,6 @@ import com.ablez.jookbiren.episode2.quiz.entity.Quiz0Ep02;
 import com.ablez.jookbiren.episode2.quiz.entity.Quiz1Ep02;
 import com.ablez.jookbiren.episode2.quiz.entity.Quiz2Ep02;
 import com.ablez.jookbiren.episode2.quiz.entity.Quiz3Ep02;
-import com.ablez.jookbiren.episode2.quiz.mapper.QuizInfoMapper;
 import com.ablez.jookbiren.episode2.quiz.repository.Quiz0QuerydslRepository;
 import com.ablez.jookbiren.episode2.quiz.repository.Quiz0Repository;
 import com.ablez.jookbiren.episode2.quiz.repository.Quiz1QuerydslRepository;
@@ -36,7 +35,7 @@ public class QuizInfoService {
     private final Quiz2Repository quiz2JpaRepository;
     private final Quiz3Repository quiz3JpaRepository;
     private final QuizRepository quizRepository;
-    private final QuizInfoMapper quizInfoMapper;
+//    private final QuizInfoMapper quizInfoMapper;
 
     @Transactional(readOnly = true)
     public Optional<Quiz0Ep02> findByQuizNumberAndUser0(int quizNumber, UserEp02 user) {
