@@ -25,7 +25,7 @@ import com.ablez.jookbiren.chatbot.custom.dto.CustomDto.Template;
 import com.ablez.jookbiren.chatbot.custom.dto.CustomDto.TextCard;
 import com.ablez.jookbiren.chatbot.custom.entity.Custom;
 import com.ablez.jookbiren.chatbot.user.entity.UserEp00;
-import com.ablez.jookbiren.chatbot.user.service.UserService;
+import com.ablez.jookbiren.chatbot.user.service.ChatbotUserService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -49,7 +49,7 @@ public class CustomService {
         put(NECKLACE, "목걸이");
     }};
 
-    private final UserService userService;
+    private final ChatbotUserService userService;
     private final CustomBlockService customBlockService;
     private final CustomForwardBlockService customForwardBlockService;
 

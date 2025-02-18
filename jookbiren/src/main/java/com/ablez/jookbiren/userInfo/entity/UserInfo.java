@@ -1,5 +1,6 @@
 package com.ablez.jookbiren.userInfo.entity;
 
+import com.ablez.jookbiren.chatbot.user.entity.UserEp00;
 import com.ablez.jookbiren.episode1.user.entity.UserEp01;
 import com.ablez.jookbiren.episode2.user.entity.UserEp02;
 import com.ablez.jookbiren.episode3.user.entity.UserEp03;
@@ -34,6 +35,9 @@ public class UserInfo {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Authority> authorities = new HashSet<>();
 
+    @OneToOne(mappedBy = "userInfo", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Setter
+    private UserEp00 userEp00;
     @OneToOne(mappedBy = "userInfo", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Setter
     private UserEp01 userEp01;
