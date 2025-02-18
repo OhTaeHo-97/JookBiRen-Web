@@ -25,4 +25,9 @@ public class UserInfoService {
         return userInfoQuerydslRepository.findByCodeEp2(code)
                 .orElseThrow(() -> new BusinessLogicException(ExceptionCode.USER_INFO_NOT_FOUND));
     }
+
+    public UserInfo findByCodeEp3(String code) {
+        return userInfoQuerydslRepository.findByCodeEp3(code)
+                .orElseThrow(() -> new BusinessLogicException(ExceptionCode.USER_INFO_NOT_FOUND));
+    }
 }

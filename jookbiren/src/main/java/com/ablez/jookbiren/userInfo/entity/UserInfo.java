@@ -2,6 +2,7 @@ package com.ablez.jookbiren.userInfo.entity;
 
 import com.ablez.jookbiren.episode1.user.entity.UserEp01;
 import com.ablez.jookbiren.episode2.user.entity.UserEp02;
+import com.ablez.jookbiren.episode3.user.entity.UserEp03;
 import com.ablez.jookbiren.security.entity.Authority;
 import java.util.HashSet;
 import java.util.List;
@@ -39,6 +40,9 @@ public class UserInfo {
     @OneToOne(mappedBy = "userInfo", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Setter
     private UserEp02 userEp02;
+    @OneToOne(mappedBy = "userInfo", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Setter
+    private UserEp03 userEp03;
 
     public List<String> getRoles() {
         return authorities.stream().map(Authority::getRole).collect(Collectors.toList());
