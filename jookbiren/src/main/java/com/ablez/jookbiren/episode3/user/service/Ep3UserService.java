@@ -35,7 +35,7 @@ public class Ep3UserService {
     private final JwtParseInterceptor jwtParseInterceptor;
 
     public LoginDto login(CodeDto codeInfo) {
-        UserInfo userInfo = userInfoService.findByCodeEp1(codeInfo.getCode());
+        UserInfo userInfo = userInfoService.findByCodeEp3(codeInfo.getCode());
         UserEp03 user = userInfo.getUserEp03();
 
         user.updateFirstLoginTime();
