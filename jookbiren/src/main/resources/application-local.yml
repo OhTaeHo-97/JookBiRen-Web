@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/chatbot?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/jookbiren_admin?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: ${MYSQL_ROOT_NAME}
     password: ${MYSQL_ROOT_PASSWORD}
   jpa:
@@ -17,15 +17,3 @@ spring:
   sql:
     init:
       mode: always
-
-logging:
-  level:
-    org:
-      springframework:
-        orm:
-          jpa: DEBUG
-
-server:
-  servlet:
-    encoding:
-      force-response: true
