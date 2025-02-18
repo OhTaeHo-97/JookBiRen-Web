@@ -1,6 +1,7 @@
 package com.ablez.jookbiren.episode2.user.repository;
 
 import static com.ablez.jookbiren.episode2.user.entity.QUserEp02.userEp02;
+import static com.ablez.jookbiren.userInfo.entity.QUserInfo.userInfo;
 
 import com.ablez.jookbiren.episode2.user.entity.UserEp02;
 import com.ablez.jookbiren.repository.Querydsl4RepositorySupport;
