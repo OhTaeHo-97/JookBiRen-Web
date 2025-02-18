@@ -64,10 +64,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/v1/users/login").permitAll()
-                .antMatchers(HttpMethod.POST, "/v1/users").permitAll()
-                .antMatchers(HttpMethod.POST, "/v1/users/reissue").permitAll()
-                .antMatchers(HttpMethod.POST, "/v1/users/register").permitAll()
+                .antMatchers(HttpMethod.POST, "/chatbot/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/chatbot/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/ep1/users/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/ep2/users/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/ep3/users/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/healthcheck").permitAll()
 //                .antMatchers(HttpMethod.GET, "/v1/users/info").hasRole("USER")
 //                .antMatchers(HttpMethod.POST, "/users/login").hasRole("USER")
@@ -100,8 +101,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new JwtParseInterceptor(jwtUtils))
-                .addPathPatterns("/v1/users/**")
-                .addPathPatterns("/v1/quizzes/**")
-                .addPathPatterns("/v1/answers/**");
+                .addPathPatterns("/ep1/users/**")
+                .addPathPatterns("/ep1/quizzes/**")
+                .addPathPatterns("/ep1/answers/**")
+                .addPathPatterns("/ep2/users/**")
+                .addPathPatterns("/ep2/quizzes/**")
+                .addPathPatterns("/ep2/answers/**")
+                .addPathPatterns("/ep3/users/**")
+                .addPathPatterns("/ep3/quizzes/**")
+                .addPathPatterns("/ep3/answers/**");
     }
 }
