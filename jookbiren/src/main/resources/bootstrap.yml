@@ -1,7 +1,7 @@
 aws:
   paramstore:
     enabled: true
-    prefix: /episode2
+    prefix: /web
     name: jookbiren
     profileSeparator: _
     region: ap-northeast-2

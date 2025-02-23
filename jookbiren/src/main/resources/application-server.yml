@@ -18,7 +18,7 @@ spring:
   #    init:
   #      mode: always
   config:
-    import: aws-parameterstore:/episode2/jookbiren
+    import: aws-parameterstore:/web/jookbiren
 
 aws:
   accessKeyId: ${AWS_ACCESS_KEY_ID}
