@@ -17,6 +17,7 @@ public class Custom {
         put(new CustomInfoDto(EYES, "당황"), 3);
         put(new CustomInfoDto(EYES, "초롱"), 4);
         put(new CustomInfoDto(SUNGLASSES, "없음"), 1);
+        put(new CustomInfoDto(SUNGLASSES, "동글이"), 2);
         put(new CustomInfoDto(SUNGLASSES, "왹져"), 3);
         put(new CustomInfoDto(SUNGLASSES, "픽셀"), 4);
         put(new CustomInfoDto(SNOUT, "미소"), 1);
