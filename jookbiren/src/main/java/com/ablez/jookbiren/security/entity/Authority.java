@@ -27,7 +27,7 @@ public class Authority implements GrantedAuthority {
     private String role;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "user_info_id")
     private UserInfo user;
 
     public Authority(String role, UserInfo user) {
