@@ -184,110 +184,185 @@ public class Ep1QuizService {
                 log = quizInfoService.insertQuiz0(quizInfo.getQuizNumber(), user);
             }
 
-            if (log.getFirstAnswerTime() == null) {
-                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
-                        quizInfo.getQuizNumber(), hintNumber);
-                if (hintInfo.isEmpty()) {
-                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
-                }
-
-                if (hintNumber == 1) {
-                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
-                } else if (hintNumber == 2) {
-                    log.setSecondHintTime(
-                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
-                }
-
-                hint = hintInfo.get().getHint();
-                image = hintInfo.get().getHintImage();
+            Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                    quizInfo.getQuizNumber(), hintNumber);
+            if (hintInfo.isEmpty()) {
+                throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
             }
+
+            if (hintNumber == 1) {
+                log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+            } else if (hintNumber == 2) {
+                log.setSecondHintTime(
+                        log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+            }
+
+            hint = hintInfo.get().getHint();
+            image = hintInfo.get().getHintImage();
+
+//            if (log.getFirstAnswerTime() == null) {
+//                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+//                        quizInfo.getQuizNumber(), hintNumber);
+//                if (hintInfo.isEmpty()) {
+//                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+//                }
+//
+//                if (hintNumber == 1) {
+//                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+//                } else if (hintNumber == 2) {
+//                    log.setSecondHintTime(
+//                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+//                }
+//
+//                hint = hintInfo.get().getHint();
+//                image = hintInfo.get().getHintImage();
+//            }
         } else if (quizInfo.getPlaceCode() == 1) {
             Quiz1Ep01 log = quizInfoService.findByQuizNumberAndUser1(quizInfo.getQuizNumber(), user).orElse(null);
             if (log == null) {
                 log = quizInfoService.insertQuiz1(quizInfo.getQuizNumber(), user);
             }
 
-            if (log.getFirstAnswerTime() == null) {
-                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
-                        quizInfo.getQuizNumber(), hintNumber);
-                if (hintInfo.isEmpty()) {
-                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
-                }
-
-                if (hintNumber == 1) {
-                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
-                } else if (hintNumber == 2) {
-                    log.setSecondHintTime(
-                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
-                }
-
-                hint = hintInfo.get().getHint();
-                image = hintInfo.get().getHintImage();
+            Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                    quizInfo.getQuizNumber(), hintNumber);
+            if (hintInfo.isEmpty()) {
+                throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
             }
+
+            if (hintNumber == 1) {
+                log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+            } else if (hintNumber == 2) {
+                log.setSecondHintTime(
+                        log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+            }
+
+            hint = hintInfo.get().getHint();
+            image = hintInfo.get().getHintImage();
+
+//            if (log.getFirstAnswerTime() == null) {
+//                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+//                        quizInfo.getQuizNumber(), hintNumber);
+//                if (hintInfo.isEmpty()) {
+//                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+//                }
+//
+//                if (hintNumber == 1) {
+//                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+//                } else if (hintNumber == 2) {
+//                    log.setSecondHintTime(
+//                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+//                }
+//
+//                hint = hintInfo.get().getHint();
+//                image = hintInfo.get().getHintImage();
+//            }
         } else if (quizInfo.getPlaceCode() == 2) {
             Quiz2Ep01 log = quizInfoService.findByQuizNumberAndUser2(quizInfo.getQuizNumber(), user).orElse(null);
             if (log == null) {
                 log = quizInfoService.insertQuiz2(quizInfo.getQuizNumber(), user);
             }
 
-            if (log.getFirstAnswerTime() == null) {
-                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
-                        quizInfo.getQuizNumber(), hintNumber);
-                if (hintInfo.isEmpty()) {
-                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
-                }
-
-                if (hintNumber == 1) {
-                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
-                } else if (hintNumber == 2) {
-                    log.setSecondHintTime(
-                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
-                }
-
-                hint = hintInfo.get().getHint();
-                image = hintInfo.get().getHintImage();
+            Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                    quizInfo.getQuizNumber(), hintNumber);
+            if (hintInfo.isEmpty()) {
+                throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
             }
+
+            if (hintNumber == 1) {
+                log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+            } else if (hintNumber == 2) {
+                log.setSecondHintTime(
+                        log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+            }
+
+            hint = hintInfo.get().getHint();
+            image = hintInfo.get().getHintImage();
+
+//            if (log.getFirstAnswerTime() == null) {
+//                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+//                        quizInfo.getQuizNumber(), hintNumber);
+//                if (hintInfo.isEmpty()) {
+//                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+//                }
+//
+//                if (hintNumber == 1) {
+//                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+//                } else if (hintNumber == 2) {
+//                    log.setSecondHintTime(
+//                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+//                }
+//
+//                hint = hintInfo.get().getHint();
+//                image = hintInfo.get().getHintImage();
+//            }
         } else if (quizInfo.getPlaceCode() == 3) {
             Quiz3Ep01 log = quizInfoService.findByQuizNumberAndUser3(quizInfo.getQuizNumber(), user).orElse(null);
             if (log == null) {
                 log = quizInfoService.insertQuiz3(quizInfo.getQuizNumber(), user);
             }
 
-            if (log.getFirstAnswerTime() == null) {
-                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
-                        quizInfo.getQuizNumber(), hintNumber);
-                if (hintInfo.isEmpty()) {
-                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
-                }
-
-                if (hintNumber == 1) {
-                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
-                } else if (hintNumber == 2) {
-                    log.setSecondHintTime(
-                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
-                }
-
-                hint = hintInfo.get().getHint();
-                image = hintInfo.get().getHintImage();
+            Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                    quizInfo.getQuizNumber(), hintNumber);
+            if (hintInfo.isEmpty()) {
+                throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
             }
+
+            if (hintNumber == 1) {
+                log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+            } else if (hintNumber == 2) {
+                log.setSecondHintTime(
+                        log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+            }
+
+            hint = hintInfo.get().getHint();
+            image = hintInfo.get().getHintImage();
+
+//            if (log.getFirstAnswerTime() == null) {
+//                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+//                        quizInfo.getQuizNumber(), hintNumber);
+//                if (hintInfo.isEmpty()) {
+//                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+//                }
+//
+//                if (hintNumber == 1) {
+//                    log.setFirstHintTime(log.getFirstHintTime() == null ? LocalDateTime.now() : log.getFirstHintTime());
+//                } else if (hintNumber == 2) {
+//                    log.setSecondHintTime(
+//                            log.getSecondHintTime() == null ? LocalDateTime.now() : log.getSecondHintTime());
+//                }
+//
+//                hint = hintInfo.get().getHint();
+//                image = hintInfo.get().getHintImage();
+//            }
         } else if (quizInfo.getPlaceCode() == 4) {
             Quiz4Ep01 log = quizInfoService.findByQuizNumberAndUser4(quizInfo.getQuizNumber(), user).orElse(null);
             if (log == null) {
                 log = quizInfoService.insertQuiz4(quizInfo.getQuizNumber(), user);
             }
 
-            if (log.getFirstAnswerTime() == null) {
-                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
-                        quizInfo.getQuizNumber(), hintNumber);
-                if (hintInfo.isEmpty()) {
-                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
-                }
-
-                log.setGetHintTime(log.getGetHintTime() == null ? LocalDateTime.now() : log.getGetHintTime());
-
-                hint = hintInfo.get().getHint();
-                image = hintInfo.get().getHintImage();
+            Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+                    quizInfo.getQuizNumber(), hintNumber);
+            if (hintInfo.isEmpty()) {
+                throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
             }
+
+            log.setGetHintTime(log.getGetHintTime() == null ? LocalDateTime.now() : log.getGetHintTime());
+
+            hint = hintInfo.get().getHint();
+            image = hintInfo.get().getHintImage();
+
+//            if (log.getFirstAnswerTime() == null) {
+//                Optional<HintEp01> hintInfo = hintService.getHintByQuizAndHintNumber(quizInfo.getPlaceCode(),
+//                        quizInfo.getQuizNumber(), hintNumber);
+//                if (hintInfo.isEmpty()) {
+//                    throw new BusinessLogicException(ExceptionCode.HINT_NOT_FOUND);
+//                }
+//
+//                log.setGetHintTime(log.getGetHintTime() == null ? LocalDateTime.now() : log.getGetHintTime());
+//
+//                hint = hintInfo.get().getHint();
+//                image = hintInfo.get().getHintImage();
+//            }
         } else {
             throw new BusinessLogicException(ExceptionCode.INVALID_PLACE_CODE);
         }
