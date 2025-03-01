@@ -152,7 +152,8 @@ public class Ep3QuizService {
         String image = null;
 
         if (quizInfo.getPlaceCode() == 0) {
-            Quiz0Ep03 log = quizInfoService.findByQuizNumberAndUser0(quizInfo.getQuizNumber(), user).orElse(null);
+            Quiz0Ep03 log = quizInfoService.findByQuizNumberAndUser0(quizInfo.getQuizNumber(), user)
+                    .orElseThrow(() -> new BusinessLogicException(ExceptionCode.QUIZ_HISTORY_NOT_FOUND));
             if (log == null) {
                 log = quizInfoService.insertQuiz0(quizInfo.getQuizNumber(), user);
             }
@@ -173,7 +174,8 @@ public class Ep3QuizService {
             hint = hintInfo.get().getHint();
             image = hintInfo.get().getHintImage();
         } else if (quizInfo.getPlaceCode() == 1) {
-            Quiz1Ep03 log = quizInfoService.findByQuizNumberAndUser1(quizInfo.getQuizNumber(), user).orElse(null);
+            Quiz1Ep03 log = quizInfoService.findByQuizNumberAndUser1(quizInfo.getQuizNumber(), user)
+                    .orElseThrow(() -> new BusinessLogicException(ExceptionCode.QUIZ_HISTORY_NOT_FOUND));
             if (log == null) {
                 log = quizInfoService.insertQuiz1(quizInfo.getQuizNumber(), user);
             }
@@ -194,7 +196,8 @@ public class Ep3QuizService {
             hint = hintInfo.get().getHint();
             image = hintInfo.get().getHintImage();
         } else if (quizInfo.getPlaceCode() == 2) {
-            Quiz2Ep03 log = quizInfoService.findByQuizNumberAndUser2(quizInfo.getQuizNumber(), user).orElse(null);
+            Quiz2Ep03 log = quizInfoService.findByQuizNumberAndUser2(quizInfo.getQuizNumber(), user)
+                    .orElseThrow(() -> new BusinessLogicException(ExceptionCode.QUIZ_HISTORY_NOT_FOUND));
             if (log == null) {
                 log = quizInfoService.insertQuiz2(quizInfo.getQuizNumber(), user);
             }
@@ -215,7 +218,8 @@ public class Ep3QuizService {
             hint = hintInfo.get().getHint();
             image = hintInfo.get().getHintImage();
         } else if (quizInfo.getPlaceCode() == 3) {
-            Quiz3Ep03 log = quizInfoService.findByQuizNumberAndUser3(quizInfo.getQuizNumber(), user).orElse(null);
+            Quiz3Ep03 log = quizInfoService.findByQuizNumberAndUser3(quizInfo.getQuizNumber(), user)
+                    .orElseThrow(() -> new BusinessLogicException(ExceptionCode.QUIZ_HISTORY_NOT_FOUND));
             if (log == null) {
                 log = quizInfoService.insertQuiz3(quizInfo.getQuizNumber(), user);
             }
