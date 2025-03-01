@@ -29,7 +29,7 @@ public class Ep3Quiz3QuerydslRepository extends Querydsl4RepositorySupport {
         Quiz3Ep03 quiz = selectFrom(quiz3Ep03)
                 .join(quiz3Ep03.quiz, quizEp03)
                 .where(
-                        quizEp03.placeCode.eq(4),
+                        quizEp03.placeCode.eq(3),
                         quizEp03.quizNumber.eq(quizNumber),
                         quiz3Ep03.userId.eq(user)
                 )
