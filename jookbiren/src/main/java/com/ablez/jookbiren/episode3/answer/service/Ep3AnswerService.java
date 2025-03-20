@@ -178,7 +178,7 @@ public class Ep3AnswerService {
             score += 1;
         }
 
-        if (user.getSolvedQuizCount() == 16) {
+        if (user.getSolvedQuizCount() >= 16) {
             score += 5;
         } else if (user.getSolvedQuizCount() >= 13) {
             score += 3;

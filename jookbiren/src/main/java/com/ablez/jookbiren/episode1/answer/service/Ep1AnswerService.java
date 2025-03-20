@@ -189,11 +189,11 @@ public class Ep1AnswerService {
             score += 1;
         }
 
-        if (user.getSolvedQuizCount() == 20) {
+        if (user.getSolvedQuizCount() >= 19) {
             score += 5;
-        } else if (user.getSolvedQuizCount() >= 17) {
+        } else if (user.getSolvedQuizCount() >= 16) {
             score += 3;
-        } else if (user.getSolvedQuizCount() >= 14) {
+        } else if (user.getSolvedQuizCount() >= 13) {
             score += 2;
         } else {
             score += 1;

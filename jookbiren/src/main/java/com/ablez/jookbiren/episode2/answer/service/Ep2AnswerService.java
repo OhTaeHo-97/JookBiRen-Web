@@ -174,7 +174,7 @@ public class Ep2AnswerService {
             score += 1;
         }
 
-        if (user.getAnswerCount() == 0) {
+        if (user.getAnswerCount() == 1) {
             score += 5;
         } else if (user.getAnswerCount() <= 3) {
             score += 4;
@@ -184,11 +184,11 @@ public class Ep2AnswerService {
             score += 1;
         }
 
-        if (user.getSolvedQuizCount() == 16) {
+        if (user.getSolvedQuizCount() >= 15) {
             score += 5;
-        } else if (user.getSolvedQuizCount() >= 13) {
+        } else if (user.getSolvedQuizCount() >= 12) {
             score += 3;
-        } else if (user.getSolvedQuizCount() >= 10) {
+        } else if (user.getSolvedQuizCount() >= 9) {
             score += 2;
         } else {
             score += 1;
