@@ -178,11 +178,11 @@ public class Ep3AnswerService {
             score += 1;
         }
 
-        if (user.getSolvedQuizCount() >= 16) {
+        if (user.getSolvedQuizCount() >= 17) {
             score += 5;
-        } else if (user.getSolvedQuizCount() >= 13) {
+        } else if (user.getSolvedQuizCount() >= 14) {
             score += 3;
-        } else if (user.getSolvedQuizCount() >= 10) {
+        } else if (user.getSolvedQuizCount() >= 11) {
             score += 2;
         } else {
             score += 1;

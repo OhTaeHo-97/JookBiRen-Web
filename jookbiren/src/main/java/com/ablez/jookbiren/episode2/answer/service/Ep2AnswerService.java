@@ -184,11 +184,11 @@ public class Ep2AnswerService {
             score += 1;
         }
 
-        if (user.getSolvedQuizCount() >= 15) {
+        if (user.getSolvedQuizCount() >= 16) {
             score += 5;
-        } else if (user.getSolvedQuizCount() >= 12) {
+        } else if (user.getSolvedQuizCount() >= 13) {
             score += 3;
-        } else if (user.getSolvedQuizCount() >= 9) {
+        } else if (user.getSolvedQuizCount() >= 10) {
             score += 2;
         } else {
             score += 1;
